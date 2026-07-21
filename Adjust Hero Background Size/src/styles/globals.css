@@ -1,0 +1,9 @@
+@keyframes photo-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Scroll left by half the width (one full copy of the list) */
+    transform: translateX(-50%);
+  }
+}
