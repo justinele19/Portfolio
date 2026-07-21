@@ -24,13 +24,13 @@ import me1 from "@/assets/7C801DD5-89AA-4C3C-B6C8-3B50E97AF544_1_105_c.jpeg";
 import me2 from "@/assets/E2E36B00-2B2B-4F18-9487-C69BFE0DE2E8_1_105_c.jpeg";
 import me4 from "@/assets/9AAE6065-34C3-43D2-8857-6F8E649E290F_1_105_c.jpeg";
 import me5 from "@/assets/85A9C153-F53E-478C-AF8C-E2FE398DF3AB_1_102_a.jpeg";
-import me6 from "@/assets/2DE3E28E-FD05-4DBF-99B5-3977866B675B_1_105_c.jpeg";
-import me7 from "@/assets/B97247DC-EE1D-457A-802B-900214616D58_1_105_c.jpeg";
+import me7 from "@/assets/2DE3E28E-FD05-4DBF-99B5-3977866B675B_1_105_c.jpeg";
+import me6 from "@/assets/B97247DC-EE1D-457A-802B-900214616D58_1_105_c.jpeg";
 import me8 from "@/assets/1F9E0585-B08F-48CD-9344-6BD34D05C0BE_1_105_c.jpeg";
 
 export const portraitPhotos = [
-  { id: "p1", src: me6, alt: "Photo of Justine", crop: { scale: 1.12, x: 49.72296921364986, y: 64.20436763222868 } },
-  { id: "p2", src: me7, alt: "Photo of Justine", crop: { scale: 1, x: 50, y: 50 } },
+  { id: "p1", src: me6, alt: "Photo of Justine", crop: { scale: 1, x: 50, y: 50} },
+  { id: "p2", src: me7, alt: "Photo of Justine", crop: { scale: 1.12, x: 49.72296921364986, y: 64.20436763222868 } },
   { id: "p3", src: me5, alt: "Photo of Justine", crop: { scale: 1.45, x: 45.39423220976911, y: 100 } },
   { id: "p4", src: me4, alt: "Photo of Justine", crop: { scale: 1.19, x: 8.861657466071417, y: 0.6820101351351351 } },
   { id: "p5", src: me8, alt: "Photo of Justine", crop: { scale: 1, x: 50.74995363501483, y: 65.8404910108843 } },
@@ -54,6 +54,25 @@ import photo12 from "@/assets/4C9C2634-C150-45DB-849A-C5A60DB3CE1D_1_105_c.jpeg"
 import photo13 from "@/assets/6B54E1DF-DBAE-4E18-8656-C4E4FBFE0280_1_102_o.jpeg";
 import photo14 from "@/assets/A4F5A6FF-B3F9-4A9B-93DE-6F678E635DB1_1_105_c.jpeg";
 import photo15 from "@/assets/84A21CF1-4E69-446D-9341-9AE7D9232B96_1_102_o.jpeg";
+import photo16 from "@/assets/0831B455-C09D-4161-9D3E-516F24A949A9_1_105_c.jpeg";
+import photo17 from "@/assets/09A19566-0788-49A3-9149-42BDEAB4D714_1_105_c.jpeg";
+import photo18 from "@/assets/1ECE78C1-F3E2-422A-9561-ADF08D9D9963_1_105_c.jpeg";
+import photo19 from "@/assets/20465B1A-5DC5-4777-B961-27389A0BABD0_1_105_c.jpeg";
+import photo20 from "@/assets/3CCC0A92-568A-437F-B0A6-68F9453E604B_1_105_c.jpeg";
+import photo21 from "@/assets/3F43843E-0775-4154-8BAC-8FF0C28E310F.jpeg";
+import photo22 from "@/assets/444A4711-9C84-475D-BB65-57687000F5CB_1_105_c.jpeg";
+import photo23 from "@/assets/46BB6BB8-7E06-41B7-8FD0-1E34F3809C5E_1_105_c.jpeg";
+import photo24 from "@/assets/5154352F-D310-417B-9427-C6153E32524B_1_105_c.jpeg";
+import photo25 from "@/assets/672C512A-D24E-4949-9C60-852991695B3F_1_105_c.jpeg";
+import photo26 from "@/assets/BEFAA000-5018-4F18-9A47-532FF588078A_1_105_c.jpeg";
+import photo27 from "@/assets/C0AD3B62-BE2F-4D61-86A8-B7A286D17817_1_105_c.jpeg";
+import photo28 from "@/assets/C84B78CD-30A1-49B5-9538-B63763F15593.jpeg";
+import photo29 from "@/assets/CB079001-5F52-48F0-B05D-8D5680E52273_1_105_c.jpeg";
+import photo30 from "@/assets/DF06AB2D-F07B-4729-85A9-57965DFA5808_1_105_c.jpeg";
+import photo31 from "@/assets/E034AC26-9FD8-4985-B849-B1A94E0B8147_1_105_c.jpeg";
+import photo32 from "@/assets/F0204F1A-BC93-43B3-B892-311016EE18A9_1_105_c.jpeg";
+import photo33 from "@/assets/7F1D1122-E740-4AD8-8B25-B725F34A294F_1_105_c.jpeg";
+import photo34 from "@/assets/AB117011-86FB-4003-8341-E71C3D1B8FB3_1_105_c.jpeg";
 
 export const photographyPhotos = [
   { id: "ph1", src: photo1, alt: "Photo by Justine", ratio: 1024 / 768 },
@@ -71,6 +90,25 @@ export const photographyPhotos = [
   { id: "ph13", src: photo13, alt: "Photo by Justine", ratio: 768 / 1024 },
   { id: "ph14", src: photo14, alt: "Photo by Justine", ratio: 768 / 1024 },
   { id: "ph15", src: photo15, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph16", src: photo16, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph17", src: photo17, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph18", src: photo18, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph19", src: photo19, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph20", src: photo20, alt: "Photo by Justine", ratio: 1024 / 768 },
+  { id: "ph21", src: photo21, alt: "Photo by Justine", ratio: 1536 / 2304 },
+  { id: "ph22", src: photo22, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph23", src: photo23, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph24", src: photo24, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph25", src: photo25, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph26", src: photo26, alt: "Photo by Justine", ratio: 1024 / 768 },
+  { id: "ph27", src: photo27, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph28", src: photo28, alt: "Photo by Justine", ratio: 1536 / 2304 },
+  { id: "ph29", src: photo29, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph30", src: photo30, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph31", src: photo31, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph32", src: photo32, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph33", src: photo33, alt: "Photo by Justine", ratio: 768 / 1024 },
+  { id: "ph34", src: photo34, alt: "Photo by Justine", ratio: 768 / 1024 },
 ];
 
 export const experience = [
