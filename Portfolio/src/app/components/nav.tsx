@@ -36,16 +36,22 @@ export function Nav() {
   const handleClick = (i: number, item: (typeof navItems)[number]) => {
     setActive(i);
     if (item.kind === "route") {
-      navigate(item.to);
+      if (location.pathname === item.to) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        navigate(item.to);
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
     } else {
       const hash = item.to.split("#")[1];
+      const scrollToSection = () =>
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
       if (location.pathname !== "/") {
         navigate("/");
-        setTimeout(() => {
-          document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-        }, 50);
+        // wait for the Home route to mount before measuring the section offset
+        requestAnimationFrame(() => requestAnimationFrame(scrollToSection));
       } else {
-        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+        scrollToSection();
       }
     }
   };

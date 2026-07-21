@@ -10,19 +10,25 @@ function Hero() {
         alt="Scenic hero background"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
       />
-      {/* Name + CS @ UCSD */}
-      <div className="absolute top-[54px] inset-x-0 px-[53px] flex items-center justify-between pointer-events-none">
+      {/* Name — fixed alongside the nav bar so it stays visible while scrolling */}
+      <div className="fixed top-[43.5px] left-[53px] z-50 pointer-events-none">
         <span
           className="font-['Instrument_Sans',sans-serif] font-semibold text-[26px] text-black tracking-[0.78px] whitespace-nowrap"
           style={{ fontVariationSettings: '"wdth" 100' }}
         >
           JUSTINE LE
         </span>
+      </div>
+      {/* CS @ UCSD + tagline */}
+      <div className="absolute top-[43.5px] right-[53px] flex flex-col items-end pointer-events-none">
         <span
           className="font-['Instrument_Sans',sans-serif] font-semibold text-[26px] text-black tracking-[0.78px] whitespace-nowrap"
           style={{ fontVariationSettings: '"wdth" 100' }}
         >
           CS @ UCSD
+        </span>
+        <span className="-mt-[8px] font-['Geist',sans-serif] font-normal text-[15px] text-black whitespace-nowrap">
+          Product Designer &amp; SWE
         </span>
       </div>
       {/* Hero text */}

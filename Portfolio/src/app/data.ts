@@ -3,7 +3,7 @@ export const projects = [
     id: 1,
     name: "LockedIn",
     video:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "@/assets/LockedIn Video.mp4",
   },
   {
     id: 2,
@@ -20,22 +20,22 @@ export const projects = [
 ];
 
 // Portrait photos of "me" for the About carousel — in reverse of upload order
-import me1 from "@/assets/7C801DD5-89AA-4C3C-B6C8-3B50E97AF544_1_105_c.jpeg";
+import me1 from "@/assets/9BA9E927-FBF2-4769-9C12-9C67C8154C02_1_105_c.jpeg";
 import me2 from "@/assets/E2E36B00-2B2B-4F18-9487-C69BFE0DE2E8_1_105_c.jpeg";
 import me4 from "@/assets/9AAE6065-34C3-43D2-8857-6F8E649E290F_1_105_c.jpeg";
 import me5 from "@/assets/85A9C153-F53E-478C-AF8C-E2FE398DF3AB_1_102_a.jpeg";
-import me7 from "@/assets/2DE3E28E-FD05-4DBF-99B5-3977866B675B_1_105_c.jpeg";
+import me7 from "@/assets/6A0F3EA2-E664-4115-9ED5-858D806E856A_1_105_c.jpeg";
 import me6 from "@/assets/B97247DC-EE1D-457A-802B-900214616D58_1_105_c.jpeg";
 import me8 from "@/assets/1F9E0585-B08F-48CD-9344-6BD34D05C0BE_1_105_c.jpeg";
 
 export const portraitPhotos = [
   { id: "p1", src: me6, alt: "Photo of Justine", crop: { scale: 1, x: 50, y: 50} },
-  { id: "p2", src: me7, alt: "Photo of Justine", crop: { scale: 1.12, x: 49.72296921364986, y: 64.20436763222868 } },
+  { id: "p2", src: me7, alt: "Photo of Justine", crop: { scale: 1, x: 20, y: 100 } },
   { id: "p3", src: me5, alt: "Photo of Justine", crop: { scale: 1.45, x: 45.39423220976911, y: 100 } },
   { id: "p4", src: me4, alt: "Photo of Justine", crop: { scale: 1.19, x: 8.861657466071417, y: 0.6820101351351351 } },
   { id: "p5", src: me8, alt: "Photo of Justine", crop: { scale: 1, x: 50.74995363501483, y: 65.8404910108843 } },
   { id: "p6", src: me2, alt: "Photo of Justine", crop: { scale: 1, x: 50, y: 50 } },
-  { id: "p7", src: me1, alt: "Photo of Justine", crop: { scale: 1, x: 50, y: 50 } },
+  { id: "p7", src: me1, alt: "Photo of Justine", crop: { scale: 1, x: 50, y: 85 } },
 ];
 
 // Photography section — Justine's photos with their real aspect ratios

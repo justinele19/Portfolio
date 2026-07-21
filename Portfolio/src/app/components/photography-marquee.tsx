@@ -56,7 +56,7 @@ export function PhotographyMarquee() {
       </h2>
       <div className="relative w-full">
         <div
-          className="flex w-max animate-[photo-marquee_50s_linear_infinite] hover:[animation-play-state:paused]"
+          className="flex w-max animate-[photo-marquee_80s_linear_infinite] hover:[animation-play-state:paused]"
           style={{ gap: `${GAP}px`, height: `${ROW_HEIGHT}px` }}
         >
           {loop.map((col, i) => {
