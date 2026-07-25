@@ -27,7 +27,7 @@ export function Header() {
             <a
               key={link.label}
               href={link.href}
-              className="transition-opacity hover:opacity-60"
+              className="relative transition-opacity duration-200 hover:opacity-60 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-foreground after:transition-all after:duration-200 hover:after:w-full"
             >
               {link.label}
             </a>
@@ -36,10 +36,13 @@ export function Header() {
 
         <a
           href="#contact"
-          className="inline-flex items-center gap-1.5 text-base font-medium tracking-[0.06em] transition-opacity hover:opacity-60"
+          className="group inline-flex items-center gap-1.5 text-base font-medium tracking-[0.06em] transition-opacity duration-200 hover:opacity-60"
         >
           Contact
-          <ArrowUpRight className="size-[18px]" strokeWidth={2} />
+          <ArrowUpRight
+            className="size-[18px] transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            strokeWidth={2}
+          />
         </a>
       </div>
     </header>

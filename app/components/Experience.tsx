@@ -1,3 +1,5 @@
+import { Reveal } from "./Reveal";
+
 type ExperienceLink = {
   label: string;
   href: string;
@@ -53,7 +55,7 @@ function ExperienceItem({ entry }: { entry: ExperienceEntry }) {
           {entry.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-border px-4 py-1.5 text-sm"
+              className="rounded-full bg-border px-4 py-1.5 text-sm transition-colors duration-200 hover:bg-black hover:text-white"
             >
               {tag}
             </span>
@@ -65,10 +67,15 @@ function ExperienceItem({ entry }: { entry: ExperienceEntry }) {
         <div className="flex gap-2 text-sm font-medium lg:justify-end">
           {entry.links.map((link, i) => (
             <span key={link.label} className="flex items-center gap-2">
-              <a href={link.href} className="transition-opacity hover:opacity-60">
+              <a
+                href={link.href}
+                className="transition-opacity duration-200 hover:opacity-60"
+              >
                 {link.label}
               </a>
-              {i < entry.links.length - 1 && <span className="text-muted-foreground">|</span>}
+              {i < entry.links.length - 1 && (
+                <span className="text-muted-foreground">|</span>
+              )}
             </span>
           ))}
         </div>
@@ -83,18 +90,21 @@ function ExperienceItem({ entry }: { entry: ExperienceEntry }) {
 export function Experience() {
   return (
     <section className="mx-auto max-w-[1220px] px-6 pb-24 sm:px-8">
-      <h2 className="font-serif-display mb-8 text-center text-4xl italic sm:text-[50px]">
-        experience
-      </h2>
+      <Reveal>
+        <h2 className="font-serif-display mb-8 text-center text-4xl italic sm:text-[50px]">
+          experience
+        </h2>
+      </Reveal>
 
       <div className="border-t border-border">
         {experience.map((entry, i) => (
-          <div
+          <Reveal
             key={entry.title}
+            delay={i * 0.1}
             className={i < experience.length - 1 ? "border-b border-border" : ""}
           >
             <ExperienceItem entry={entry} />
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>

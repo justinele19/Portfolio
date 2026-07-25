@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "motion/react";
+
 type ProjectStat = {
   label: string;
   value: string;
@@ -39,20 +43,33 @@ const projects: Project[] = [
   },
 ];
 
+const easeOut = [0.22, 1, 0.36, 1] as const;
+
 function ProjectPreview({ name }: { name: string }) {
   return (
-    <div className="flex min-h-[260px] w-full items-center justify-center rounded-[40px] bg-border/60 sm:rounded-[60px] lg:min-h-full">
+    <motion.div
+      variants={{ hover: { scale: 1.015 } }}
+      transition={{ duration: 0.3, ease: easeOut }}
+      className="flex min-h-[260px] w-full items-center justify-center rounded-[40px] bg-border/60 transition-colors duration-300 sm:rounded-[60px] lg:min-h-full"
+    >
       <span className="font-display text-lg font-medium text-muted-foreground/70">
         {name} preview
       </span>
-    </div>
+    </motion.div>
   );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <article className="grid gap-6 lg:grid-cols-[477fr_677fr] lg:items-stretch lg:gap-8">
-      <div className="flex flex-col gap-6 rounded-[40px] bg-surface px-8 py-10 sm:rounded-[60px]">
+    <motion.article
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: easeOut }}
+      whileHover="hover"
+      className="grid gap-6 lg:grid-cols-[477fr_677fr] lg:items-stretch lg:gap-8"
+    >
+      <div className="flex flex-col gap-6 rounded-[40px] bg-surface px-8 py-10 transition-shadow duration-300 hover:shadow-lg sm:rounded-[60px]">
         <div className="flex flex-col gap-2">
           {project.meta && (
             <p className="text-sm text-foreground">{project.meta}</p>
@@ -77,30 +94,38 @@ function ProjectCard({ project }: { project: Project }) {
           ))}
         </dl>
 
-        <button
+        <motion.button
           type="button"
-          className="mt-auto inline-flex items-center justify-center rounded-full bg-border px-6 py-2.5 text-sm font-semibold transition-opacity hover:opacity-70"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className="mt-auto inline-flex items-center justify-center rounded-full bg-border px-6 py-2.5 text-sm font-semibold transition-colors duration-200 hover:bg-black hover:text-white"
         >
           View Details
-        </button>
+        </motion.button>
       </div>
 
       <ProjectPreview name={project.name} />
-    </article>
+    </motion.article>
   );
 }
 
 export function SelectedProjects() {
   return (
     <section id="projects" className="mx-auto max-w-[1220px] px-6 pb-24 sm:px-8">
-      <h2 className="font-display mb-12 text-center text-4xl sm:text-left sm:text-[50px]">
+      <motion.h2
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6, ease: easeOut }}
+        className="font-display mb-12 text-center text-4xl sm:text-left sm:text-[50px]"
+      >
         <span className="font-serif-display italic text-[#b0adad]">Selected</span>{" "}
         <span className="font-semibold">projects</span>
-      </h2>
+      </motion.h2>
 
       <div className="flex flex-col gap-10">
-        {projects.map((project) => (
-          <ProjectCard key={project.name} project={project} />
+        {projects.map((project, index) => (
+          <ProjectCard key={project.name} project={project} index={index} />
         ))}
       </div>
     </section>

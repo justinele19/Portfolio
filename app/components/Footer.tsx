@@ -1,4 +1,5 @@
 import { ArrowUpRight, Copyright } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const mainLinks = [
   { label: "Projects", href: "#projects" },
@@ -13,8 +14,11 @@ const contactLinks = [
 export function Footer() {
   return (
     <footer id="about" className="border-t border-border">
-      <div id="contact" className="mx-auto max-w-[1220px] px-6 py-20 sm:px-8">
-        <div className="flex flex-col gap-16 sm:flex-row sm:justify-between">
+      <Reveal
+        className="mx-auto max-w-[1220px] px-6 py-20 sm:px-8"
+        delay={0}
+      >
+        <div id="contact" className="flex flex-col gap-16 sm:flex-row sm:justify-between">
           <div>
             <h2 className="font-body text-3xl font-medium tracking-tight sm:text-[35px]">
               Let&rsquo;s get in touch.
@@ -33,7 +37,7 @@ export function Footer() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-sm font-medium transition-opacity hover:opacity-60"
+                  className="text-sm font-medium transition-opacity duration-200 hover:opacity-60"
                 >
                   {link.label}
                 </a>
@@ -48,10 +52,13 @@ export function Footer() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="inline-flex items-center gap-1.5 text-sm font-medium transition-opacity hover:opacity-60"
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium transition-opacity duration-200 hover:opacity-60"
                 >
                   {link.label}
-                  <ArrowUpRight className="size-[18px]" strokeWidth={2} />
+                  <ArrowUpRight
+                    className="size-[18px] transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    strokeWidth={2}
+                  />
                 </a>
               ))}
             </div>
@@ -67,7 +74,7 @@ export function Footer() {
             Made with matcha and coffee
           </p>
         </div>
-      </div>
+      </Reveal>
     </footer>
   );
 }
