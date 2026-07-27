@@ -1,4 +1,7 @@
+"use client";
+
 import { ArrowUpRight } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 const navLinks = [
   { label: "Home", href: "#top" },
@@ -7,22 +10,43 @@ const navLinks = [
 ];
 
 export function Header() {
+  const headerRef = useRef<HTMLElement>(null);
+
+  // Publish the header's real height as --header-height. The hero uses it to
+  // fill exactly the rest of the screen. Measured rather than hard-coded
+  // because the nav wraps to a different number of rows as the width changes,
+  // so no fixed value is correct at every breakpoint.
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver(() => {
+      document.documentElement.style.setProperty(
+        "--header-height",
+        `${el.offsetHeight}px`,
+      );
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <header
+      ref={headerRef}
       id="top"
       className="sticky top-0 z-50 bg-background/90 backdrop-blur-sm"
     >
-      <div className="mx-auto flex max-w-[1220px] flex-wrap items-center justify-between gap-4 px-6 py-6 sm:px-8">
-        <div className="font-display leading-tight">
-          <p className="text-[1.4rem] font-semibold tracking-[0.03em]">
+      {/* Vertical space comes from --nav-space-y in globals.css. */}
+      <div className="section-shell flex flex-wrap items-center justify-between gap-4 py-[var(--nav-space-y)]">
+        <div className="font-body leading-tight">
+          <p className="text-[24px] font-semibold tracking-[0.72px]">
             Justine Le
           </p>
-          <p className="font-body text-sm font-normal text-foreground">
+          <p className="text-[15px] font-normal text-foreground">
             Product Engineer
           </p>
         </div>
 
-        <nav className="flex items-center gap-6 text-base font-medium tracking-[0.06em] sm:gap-10">
+        <nav className="flex items-center gap-6 text-[20px] font-medium tracking-[1.2px] sm:gap-10">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -36,7 +60,7 @@ export function Header() {
 
         <a
           href="#contact"
-          className="group inline-flex items-center gap-1.5 text-base font-medium tracking-[0.06em] transition-opacity duration-200 hover:opacity-60"
+          className="group inline-flex items-center gap-1.5 text-[20px] font-medium tracking-[1.2px] transition-opacity duration-200 hover:opacity-60"
         >
           Contact
           <ArrowUpRight

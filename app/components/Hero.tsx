@@ -6,23 +6,33 @@ const easeOut = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
   return (
-    <section className="mx-auto max-w-[1220px] px-6 pb-16 pt-6 sm:px-8">
-      <div className="flex flex-col gap-10 rounded-[40px] bg-border/70 px-8 py-16 sm:rounded-[60px] sm:px-14 sm:py-20 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
+    /* Fills the screen below the nav bar so the hero card is the only thing
+       in frame on load. Card is vertically centred inside it. */
+    <section className="section-shell flex min-h-[calc(100svh-var(--header-height))] items-center justify-center">
+      {/* HERO CARD. Width = --content-width (same as every section below, so
+          everything lines up). Height and radius are tokens in globals.css.
+          Text inside is sized in `cqw` — 1cqw = 1% of this card's width — so
+          it all rescales together if you change the card size. The comment
+          after each value is its size at the 1292px design width. */}
+      <div className="@container w-full h-[var(--hero-height)] flex flex-col justify-center gap-[3.39cqw] rounded-[var(--hero-radius)] bg-hero-card px-[var(--hero-padding-x)]">
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut }}
-          className="font-display max-w-xl text-4xl font-bold leading-[1.1] sm:text-5xl lg:text-[60px]"
+          /* 7.91cqw ≈ 82px · max-w 80cqw ≈ 832px controls where it wraps */
+          className="font-display text-[clamp(30px,7.91cqw,96px)] @md:max-w-[80cqw] font-bold leading-[1.1]"
         >
           Designed and built, start to finish.
         </motion.h1>
 
-        <div className="flex flex-col items-start gap-6 lg:max-w-md lg:items-end">
+        {/* Paragraph + button, right-aligned under the headline */}
+        <div className="flex flex-col items-end gap-[1.32cqw] self-end text-right @md:max-w-[74cqw]">
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease: easeOut }}
-            className="text-base leading-relaxed tracking-[0.01em] text-muted-foreground lg:text-right"
+            /* 2.11cqw ≈ 22px */
+            className="text-[clamp(13px,2.11cqw,26px)] leading-normal tracking-[0.01em] text-hero-muted"
           >
             Studying CS at UC San Diego, with a background in security
             research and experience alongside DoD and NIWC Pacific leaders.
@@ -34,7 +44,8 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.3, ease: easeOut }}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
-            className="inline-flex items-center justify-center rounded-full bg-surface-muted px-6 py-3 text-base tracking-[0.01em] transition-colors duration-200 hover:bg-border"
+            /* 3.44cqw ≈ 36px horizontal padding · 2.11cqw ≈ 22px text */
+            className="inline-flex items-center justify-center rounded-[var(--hero-radius)] bg-hero-button px-[clamp(20px,3.44cqw,44px)] py-[clamp(8px,1.17cqw,16px)] text-[clamp(13px,2.11cqw,26px)] tracking-[0.01em] transition-colors duration-200 hover:bg-border"
           >
             View My Work
           </motion.a>

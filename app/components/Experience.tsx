@@ -40,22 +40,24 @@ const experience: ExperienceEntry[] = [
 
 function ExperienceItem({ entry }: { entry: ExperienceEntry }) {
   return (
-    <div className="grid gap-6 py-12 lg:grid-cols-[445fr_720fr] lg:gap-12">
+    /* --experience-inset indents the row slightly from its rules, as in the
+       design. Set it to 0 in globals.css for flush, edge-to-edge alignment. */
+    <div className="grid gap-6 px-[var(--experience-inset)] py-[19px] lg:grid-cols-[445fr_618fr] lg:gap-[201px]">
       <div className="flex flex-col gap-6">
         <div>
-          <p className="text-sm">{entry.date}</p>
-          <h3 className="font-display mt-2 text-2xl font-semibold">
+          <p className="text-[14px]">{entry.date}</p>
+          <h3 className="font-display mt-2 text-[25px] font-semibold">
             {entry.title}
           </h3>
-          <p className="font-display mt-1 text-base italic tracking-tight">
+          <p className="font-display mt-1 text-[16px] italic tracking-[-0.48px]">
             {entry.org}
           </p>
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-[11px]">
           {entry.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-border px-4 py-1.5 text-sm transition-colors duration-200 hover:bg-black hover:text-white"
+              className="inline-flex h-[30px] items-center rounded-full bg-border px-[17px] text-[14px] transition-colors duration-200 hover:bg-black hover:text-white"
             >
               {tag}
             </span>
@@ -64,7 +66,7 @@ function ExperienceItem({ entry }: { entry: ExperienceEntry }) {
       </div>
 
       <div className="flex flex-col gap-4">
-        <div className="flex gap-2 text-sm font-medium lg:justify-end">
+        <div className="flex gap-2 text-[14px] font-medium lg:justify-end">
           {entry.links.map((link, i) => (
             <span key={link.label} className="flex items-center gap-2">
               <a
@@ -79,7 +81,7 @@ function ExperienceItem({ entry }: { entry: ExperienceEntry }) {
             </span>
           ))}
         </div>
-        <p className="text-sm leading-relaxed text-muted-foreground">
+        <p className="text-[14px] leading-normal text-muted-foreground">
           {entry.description}
         </p>
       </div>
@@ -89,9 +91,9 @@ function ExperienceItem({ entry }: { entry: ExperienceEntry }) {
 
 export function Experience() {
   return (
-    <section className="mx-auto max-w-[1220px] px-6 pb-24 sm:px-8">
+    <section className="section-shell pb-[var(--space-experience-to-footer)]">
       <Reveal>
-        <h2 className="font-serif-display mb-8 text-center text-4xl italic sm:text-[50px]">
+        <h2 className="font-display mb-[var(--space-experience-heading)] text-center text-4xl font-semibold italic sm:text-[50px]">
           experience
         </h2>
       </Reveal>
@@ -101,7 +103,7 @@ export function Experience() {
           <Reveal
             key={entry.title}
             delay={i * 0.1}
-            className={i < experience.length - 1 ? "border-b border-border" : ""}
+            className="border-b border-border"
           >
             <ExperienceItem entry={entry} />
           </Reveal>

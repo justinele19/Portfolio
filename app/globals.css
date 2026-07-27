@@ -1,12 +1,82 @@
 @import "tailwindcss";
 
+/* ══════════════════════════════════════════════════════════════════════
+   DESIGN TOKENS
+   Every spacing and size in the site is driven from here. Change a value
+   in this block and the whole page follows — no need to hunt through
+   components. Design reference: Figma "Home - Version 2 Mockup" (1440px).
+   ══════════════════════════════════════════════════════════════════════ */
 :root {
-  --background: #f1f1f1;
-  --foreground: #0a0a0a;
-  --muted-foreground: rgba(10, 10, 10, 0.5);
-  --surface: #ffffff;
+  /* ─── Colours ─────────────────────────────────────────────────────── */
+  --background: #f1f1f1;            /* page background */
+  --foreground: #0a0a0a;            /* body text */
+  --muted-foreground: rgba(10, 10, 10, 0.5); /* descriptions, captions */
+  --surface: #ffffff;               /* project card background */
   --surface-muted: #ededed;
-  --border: #d9d9d9;
+  --border: #d9d9d9;                /* rules, tags, "View Details" button */
+  --hero-card-bg: #c4c4c4;          /* the big hero card */
+  --hero-button-bg: #d1d1d1;        /* "View My Work" button */
+  --hero-muted: #696969;            /* hero paragraph text */
+  --serif-accent: #b0adad;          /* the italic "Selected" */
+
+  /* ─── Layout ──────────────────────────────────────────────────────────
+     ONE width shared by the hero card and every section below it, so all
+     sections line up. Gutter is the minimum space to the screen edge.  */
+  --content-width: 1292px;
+  --content-gutter: 24px;           /* mobile; desktop value set below */
+
+  /* ─── Nav bar ─────────────────────────────────────────────────────── */
+  --nav-space-y: 20px;              /* space above AND below the nav bar */
+  /* Starting value only. Header.tsx measures the real header and overwrites
+     this at runtime, because the nav wraps to a different number of rows as
+     the screen narrows — no single fixed value is right at every width. */
+  --header-height: 181px;
+
+  /* ─── Hero card ───────────────────────────────────────────────────────
+     Design height is 714px. On short screens it shrinks so the whole card
+     always fits on screen with nothing below it peeking in.             */
+  --hero-height-max: 714px;
+  --hero-breathing-room: 32px;      /* min space above/below the card */
+  --hero-height: min(
+    var(--hero-height-max),
+    calc(100svh - var(--header-height) - var(--hero-breathing-room) * 2)
+  );
+  --hero-radius: 49px;
+  /* Must stay a % (not cqw): cqw is derived FROM the card's content box, so
+     using it for the card's own padding creates a circular dependency and the
+     browser resolves it wrong. 10% of the 1292px card = the design's 129px. */
+  --hero-padding-x: 10%;
+
+  /* ─── Vertical rhythm between sections ────────────────────────────── */
+  --space-hero-to-projects: 128px;
+  --space-projects-heading: 48px;   /* "Selected projects" → first card */
+  --space-between-cards: 40px;
+  --space-cards-to-experience: 56px;
+  --space-experience-heading: 40px; /* "experience" → first rule */
+  --space-experience-to-footer: 63px;
+  --space-footer-bottom: 96px;
+
+  /* ─── Project cards ───────────────────────────────────────────────── */
+  --card-height: 431px;             /* all three cards, identical */
+  --card-radius: 65px;
+  --card-text-width: 487px;         /* white card */
+  --card-preview-width: 774px;      /* image/video panel */
+  --card-column-gap: 32px;          /* between the two */
+  --card-padding-x: 41px;           /* inside the white card */
+
+  /* ─── Row insets — set to 0 for edge-to-edge alignment ────────────── */
+  --experience-inset: 14px;         /* experience rows vs. their rules */
+  --footer-inset: 63px;             /* footer content vs. section edge */
+}
+
+/* Desktop values (the Figma design is a 1440px frame). Below this width the
+   nav wraps to two rows, so the nav tokens above differ deliberately. */
+@media (min-width: 640px) {
+  :root {
+    --content-gutter: 74px;
+    --nav-space-y: 53px;
+    --header-height: 155px;
+  }
 }
 
 @theme inline {
@@ -16,10 +86,25 @@
   --color-surface: var(--surface);
   --color-surface-muted: var(--surface-muted);
   --color-border: var(--border);
+  --color-hero-card: var(--hero-card-bg);
+  --color-hero-button: var(--hero-button-bg);
+  --color-hero-muted: var(--hero-muted);
+  --color-serif-accent: var(--serif-accent);
 
   --font-body: var(--font-geist);
   --font-display: var(--font-instrument-sans);
   --font-serif-display: var(--font-instrument-serif);
+}
+
+@layer components {
+  /* The shared width wrapper. Every section uses this, which is what keeps
+     the hero card and all sections below it perfectly aligned. */
+  .section-shell {
+    margin-inline: auto;
+    width: 100%;
+    max-width: calc(var(--content-width) + var(--content-gutter) * 2);
+    padding-inline: var(--content-gutter);
+  }
 }
 
 body {

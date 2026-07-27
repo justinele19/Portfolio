@@ -14,11 +14,16 @@ const contactLinks = [
 export function Footer() {
   return (
     <footer id="about" className="border-t border-border">
+      {/* --footer-inset indents footer content from the section edge, as in the
+          design. Set it to 0 in globals.css to align flush with the sections. */}
       <Reveal
-        className="mx-auto max-w-[1220px] px-6 py-20 sm:px-8"
+        className="section-shell pt-[var(--space-experience-to-footer)] pb-[var(--space-footer-bottom)]"
         delay={0}
       >
-        <div id="contact" className="flex flex-col gap-16 sm:flex-row sm:justify-between">
+        <div
+          id="contact"
+          className="flex flex-col gap-16 px-[var(--footer-inset)] sm:flex-row sm:justify-between"
+        >
           <div>
             <h2 className="font-body text-3xl font-medium tracking-tight sm:text-[35px]">
               Let&rsquo;s get in touch.
@@ -65,8 +70,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-start gap-1 sm:items-end">
-          <p className="inline-flex items-center gap-1.5 text-sm font-medium">
+        <div className="mt-16 flex flex-col items-start gap-1 px-[var(--footer-inset)] sm:items-end">
+          <p className="inline-flex items-center gap-1.5 text-[14px] font-medium">
             <Copyright className="size-[11px]" strokeWidth={2} />
             2026 Justine Le
           </p>
